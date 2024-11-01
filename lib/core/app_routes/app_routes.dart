@@ -1,3 +1,3 @@
 class Routes {
-  static const String splash = '/lib/views/splash/splash_view.dart';
+  static const String splash = '/splash_view';
 }
