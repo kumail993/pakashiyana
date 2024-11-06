@@ -1,16 +1,18 @@
 import 'package:pakashiyana/core/theme/ui_helper.dart';
 import 'package:pakashiyana/exports.dart';
-import 'package:pakashiyana/views/authentication/controller/login_controller.dart';
+import 'package:pakashiyana/views/authentication/controller/sign_up_controller.dart';
 import 'package:pakashiyana/widgets/app_button.dart';
 import 'package:pakashiyana/widgets/app_textfield.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({super.key});
+class SignUpView extends GetView<SignUpController> {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
+    Get.put(SignUpController());
     return Scaffold(
+      backgroundColor: kcWhitecolor,
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding:
             const EdgeInsets.only(left: 20, right: 20, top: 120, bottom: 20),
@@ -18,7 +20,7 @@ class LoginView extends GetView<LoginController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppStrings.loginText,
+              AppStrings.signUpText,
               style: getMediumStyle(
                 color: kcBlackColor,
                 fontSize: 32,
@@ -28,7 +30,7 @@ class LoginView extends GetView<LoginController> {
             Padding(
               padding: const EdgeInsets.only(right: 50),
               child: Text(
-                AppStrings.loginPara,
+                AppStrings.signUpPara,
                 style: getRegularStyle(
                   color: kcTextGrey,
                   fontSize: 14,
@@ -37,12 +39,17 @@ class LoginView extends GetView<LoginController> {
             ),
             verticalSpaceMedium,
             AppTextField(
+              labelText: "Name",
+              controller: controller.emailController,
+            ),
+            verticalSpaceSmall,
+            AppTextField(
               labelText: "Email",
               controller: controller.emailController,
             ),
             verticalSpaceSmall,
             GetBuilder(
-              init: LoginController(),
+              init: SignUpController(),
               builder: (_) => AppTextField(
                 onVisibilityToggle: controller.toggleVisibility,
                 suffixIcon: true,
@@ -52,38 +59,54 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             verticalSpaceSmall,
-            Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  child: Text(
-                    'Forgot Password?',
-                    style: getRegularStyle(color: kcBlackColor, fontSize: 14),
-                  ),
-                )),
+            Obx(
+              () => AppTextField(
+                labelText: 'Phone Number'.tr,
+                controller: controller.phoneController,
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Phone number is required";
+                  } else {
+                    return null;
+                  }
+                },
+                prefixIcon: GestureDetector(
+                  onTap: () {
+                    controller.selectCountry(context);
+                  },
+                  child: Container(
+                      width: 75,
+                      alignment: Alignment.center,
+                      child: Text(
+                          '${controller.countryData.value.flagEmoji} + ${controller.countryData.value.phoneCode}',
+                          style: getRegularStyle(
+                            color: kcTextGrey,
+                            fontSize: 12,
+                          ))),
+                ),
+              ),
+            ),
             const Spacer(),
             Align(
                 alignment: Alignment.center,
-                child: PrimaryButton(
-                    text: "Login",
-                    onPressed: () {
-                      Get.offNamed(Routes.bottomNav);
-                    })),
+                child: PrimaryButton(text: "Sign Up", onPressed: () {})),
             verticalSpaceMedium,
             GestureDetector(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Dont have an account?',
+                    'Already have an account?',
                     style: getRegularStyle(color: kcBlackColor, fontSize: 14),
                   ),
                   horizontalSpaceSmall,
                   GestureDetector(
                     onTap: () {
-                      controller.navigateToSignUp();
+                      controller.navigateToLogin();
                     },
                     child: Text(
-                      'Sign Up',
+                      'Login',
                       style:
                           getMediumStyle(color: kcPrimaryColor, fontSize: 14),
                     ),

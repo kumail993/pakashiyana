@@ -1,6 +1,4 @@
-
 import 'package:pakashiyana/exports.dart';
-
 
 ThemeData get theme => AppTheme.theme;
 
@@ -8,19 +6,17 @@ abstract final class AppTheme {
   static TextDirection textDirection = TextDirection.rtl;
   static ThemeData theme = getTheme();
 
-
   static ThemeData getTheme() {
     return lightTheme;
   }
 
   /// -------------------------- Light Theme  -------------------------------------------- ///
   static final ThemeData lightTheme = ThemeData(
-
     /// Brightness
     brightness: Brightness.light,
 
     /// Primary Color
-    primaryColor: const Color(0xffD17E0F),
+    primaryColor: kcPrimaryColor,
     scaffoldBackgroundColor: const Color(0xffffffff),
     canvasColor: Colors.transparent,
 
@@ -52,33 +48,33 @@ abstract final class AppTheme {
     ),
 
     /// Divider Theme
-    dividerTheme: const DividerThemeData(
-        color: Color(0xffe8e8e8), thickness: 1),
+    dividerTheme:
+        const DividerThemeData(color: Color(0xffe8e8e8), thickness: 1),
     dividerColor: const Color(0xffe8e8e8),
 
     /// Bottom AppBar Theme
-    bottomAppBarTheme: const BottomAppBarTheme(
-        color: Color(0xffeeeeee), elevation: 2),
+    bottomAppBarTheme:
+        const BottomAppBarTheme(color: Color(0xffeeeeee), elevation: 2),
 
     /// Tab bar Theme
     tabBarTheme: const TabBarTheme(
       unselectedLabelColor: Color(0xff495057),
-      labelColor: Color(0xffD17E0F),
+      labelColor: kcPrimaryColor,
       indicatorSize: TabBarIndicatorSize.label,
       indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(color: Color(0xffD17E0F), width: 2),
+        borderSide: BorderSide(color: kcPrimaryColor, width: 2),
       ),
     ),
 
     /// CheckBox theme
     checkboxTheme: CheckboxThemeData(
       checkColor: WidgetStateProperty.all(const Color(0xffeeeeee)),
-      fillColor: WidgetStateProperty.all(const Color(0xffD17E0F)),
+      fillColor: WidgetStateProperty.all(kcPrimaryColor),
     ),
 
     /// Radio theme
     radioTheme: RadioThemeData(
-      fillColor: WidgetStateProperty.all(const Color(0xffD17E0F)),
+      fillColor: WidgetStateProperty.all(kcPrimaryColor),
     ),
 
     ///Switch Theme
@@ -103,7 +99,7 @@ abstract final class AppTheme {
           WidgetState.selected,
         };
         if (state.any(interactiveStates.contains)) {
-          return const Color(0xffD17E0F);
+          return kcPrimaryColor;
         }
         return null;
       }),
@@ -111,11 +107,11 @@ abstract final class AppTheme {
 
     /// Slider Theme
     sliderTheme: SliderThemeData(
-      activeTrackColor: const Color(0xffD17E0F),
-      inactiveTrackColor: const Color(0xffD17E0F).withAlpha(140),
+      activeTrackColor: kcPrimaryColor,
+      inactiveTrackColor: kcPrimaryColor.withAlpha(140),
       trackShape: const RoundedRectSliderTrackShape(),
       trackHeight: 4,
-      thumbColor: const Color(0xffD17E0F),
+      thumbColor: kcPrimaryColor,
       thumbShape: const RoundSliderThumbShape(),
       overlayShape: const RoundSliderOverlayShape(),
       tickMarkShape: const RoundSliderTickMarkShape(),
@@ -131,8 +127,9 @@ abstract final class AppTheme {
     indicatorColor: const Color(0xffeeeeee),
     highlightColor: const Color(0xffeeeeee),
     colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xffD17E0F),
-    ).copyWith(surface: const Color(0xffffffff)).copyWith(
-        error: const Color(0xfff0323c)),
+      seedColor: kcPrimaryColor,
+    )
+        .copyWith(surface: const Color(0xffffffff))
+        .copyWith(error: const Color(0xfff0323c)),
   );
 }
