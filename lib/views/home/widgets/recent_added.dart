@@ -11,7 +11,7 @@ class RecentAdded extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Recently Added',
+          Text('Recently Addedd',
               style: getMediumStyle(color: kcBlackColor, fontSize: 16)),
           verticalSpace(10),
           ...List.generate(10, (index) {
