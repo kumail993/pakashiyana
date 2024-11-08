@@ -11,4 +11,5 @@ class AppStrings {
   static const String signUpText = 'Create\nAccount';
   static const String signUpPara =
       'Enter Your Email and Password to Register Yourself';
+  static const String homeLabel = 'Find Your Best Place';
 }
