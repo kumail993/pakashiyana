@@ -1,4 +1,4 @@
-import 'package:pakashiyana/core/theme/ui_helper.dart';
+import 'package:pakashiyana/core/helpers/ui_helper.dart';
 import 'package:pakashiyana/exports.dart';
 import 'package:pakashiyana/views/onboarding/welcome_controller.dart';
 import 'package:pakashiyana/views/onboarding/widgets/rounded_button.dart';

@@ -1,4 +1,5 @@
 import 'package:country_picker/country_picker.dart';
+import 'package:pakashiyana/core/helpers/snackbar.dart';
 import 'package:pakashiyana/exports.dart';
 
 class SignUpController extends GetxController {
@@ -8,6 +9,7 @@ class SignUpController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   var countryData = CountryParser.parseCountryCode('PK').obs;
+  final AuthService _auth = AuthService();
 
   bool _isObscure = true;
 
@@ -23,6 +25,22 @@ class SignUpController extends GetxController {
 
   void navigateToLogin() {
     Get.toNamed(Routes.loginView);
+  }
+
+  Future<void> signUp() async {
+    if (formKey.currentState!.validate()) {
+      final response = await _auth.signUp(
+          email: emailController.text,
+          password: passwordController.text,
+          username: nameController.text,
+          phoneNo: int.parse(phoneController.text));
+      if (response) {
+        Snackbars.success("User Signed Up Successfully");
+        Get.offNamed(Routes.loginView);
+      } else {
+        Snackbars.error("User Already Exists");
+      }
+    }
   }
 
   Future<void> selectCountry(BuildContext context) async {

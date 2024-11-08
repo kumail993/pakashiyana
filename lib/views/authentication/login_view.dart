@@ -1,4 +1,4 @@
-import 'package:pakashiyana/core/theme/ui_helper.dart';
+import 'package:pakashiyana/core/helpers/ui_helper.dart';
 import 'package:pakashiyana/exports.dart';
 import 'package:pakashiyana/views/authentication/controller/login_controller.dart';
 import 'package:pakashiyana/widgets/app_button.dart';
@@ -65,9 +65,9 @@ class LoginView extends GetView<LoginController> {
                 alignment: Alignment.center,
                 child: PrimaryButton(
                     text: "Login",
-                    onPressed: () {
-                      Get.offNamed(Routes.bottomNav);
-                    })),
+                    onPressed:controller.login
+                ),
+            ),
             verticalSpaceMedium,
             GestureDetector(
               child: Row(

@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:pakashiyana/pakashiyana_app.dart';
+
+
+import 'package:pakashiyana/exports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
-  //await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+ );
+  // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(const PakashiyanaApp());
 }

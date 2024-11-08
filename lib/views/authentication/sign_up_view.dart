@@ -1,4 +1,4 @@
-import 'package:pakashiyana/core/theme/ui_helper.dart';
+import 'package:pakashiyana/core/helpers/ui_helper.dart';
 import 'package:pakashiyana/exports.dart';
 import 'package:pakashiyana/views/authentication/controller/sign_up_controller.dart';
 import 'package:pakashiyana/widgets/app_button.dart';
@@ -90,7 +90,7 @@ class SignUpView extends GetView<SignUpController> {
             const Spacer(),
             Align(
                 alignment: Alignment.center,
-                child: PrimaryButton(text: "Sign Up", onPressed: () {})),
+                child: PrimaryButton(text: "Sign Up", onPressed:controller.signUp)),
             verticalSpaceMedium,
             GestureDetector(
               child: Row(

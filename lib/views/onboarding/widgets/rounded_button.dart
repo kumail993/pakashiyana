@@ -17,8 +17,7 @@ class RoundedButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.backgroundColor = kcPrimaryColor,
     this.borderRadius = 30.0,
-    this.padding =
-        const EdgeInsets.only(top: 18, left: 50, right: 50, bottom: 18),
+    this.padding = const EdgeInsets.symmetric(vertical: 14.0, horizontal: 24.0),
     this.fontSize = 16.0,
     this.fontWeight = FontWeight.bold,
   });
