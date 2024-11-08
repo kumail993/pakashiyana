@@ -7,7 +7,7 @@ class PakashiyanaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'PakAshiyanaa',
+      title: 'PakAshiyana',
       debugShowCheckedModeBanner: false,
       theme: theme,
       locale: const Locale('en_US'),

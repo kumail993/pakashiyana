@@ -1,4 +1,4 @@
-import 'package:pakashiyana/components.dart/onboarding_image.dart';
+import 'package:pakashiyana/views/onboarding/widgets/onboarding_image.dart';
 import 'package:pakashiyana/exports.dart';
 import 'package:pakashiyana/views/onboarding/welcome_controller.dart';
 import 'package:pakashiyana/views/onboarding/widgets/welcome_content.dart';
